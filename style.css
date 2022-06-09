@@ -24,3 +24,8 @@ main{
 img{
     width: 100%;
 }
+
+
+select{
+    width: 20%;
+}

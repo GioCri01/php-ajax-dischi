@@ -1,4 +1,12 @@
 <?php
+
+$generi = $_GET["selected"];
+$dischi_filtrati =[];
+
+
+
+
+
 $dischi =[ 
     [
             "poster"=> "https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg",
@@ -72,8 +80,20 @@ $dischi =[
     ],
 ];
 
+if(empty($generi)){
+    $dischi_filtrati = $dischi;
+}else{
+    foreach($dischi as $disco){
+        if($disco["genre"]== $generi){
+            $dischi_filtrati[] = $disco;
+        }elseif($generi === "all"){
+            $dischi_filtrati = $dischi;
+        }
+    }
+}
+
     
 header('Content-Type: application/json');
-echo json_encode($dischi);
+echo json_encode($dischi_filtrati);
 
 ?>

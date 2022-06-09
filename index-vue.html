@@ -13,7 +13,23 @@
 </head>
 <body>
     <div id="app">
-        <header></header>
+        <header>
+            <select
+                class="form-control w-25"
+                v-model="selected"
+                @change="getApi()"
+                >
+                <option disabled value="">Filtra per genere</option>
+                <option  >all</option>
+                <option >Rock</option>
+                <option>Jazz</option>
+                <option >Pop</option>
+                <option >Metal</option>
+             </select>
+                
+                
+           
+        </header>
         <main>
             <div class="container d-flex flex-wrap">
                
@@ -21,7 +37,7 @@
                 v-for="(disco,index) in dischi"
                 :key="index"
                 class="box">
-                    <img :src="disco.poster" alt="">
+                    <img :src="disco.poster" :alt="disco.title">
                     <h4>{{disco.title}}</h4>
                     <h4>{{disco.author}}</h4>
                     <h4>{{disco.genre}}</h4>
